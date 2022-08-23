@@ -18,6 +18,9 @@ ext {
                     cloud_alibaba: "2.2.0.RELEASE",
                     management   : "1.0.8.RELEASE",
             ],
+            develop:[
+                    netty        :"4.1.79.Final"
+            ]
     ]
     libs = [
             "lombok"                                : "org.projectlombok:lombok:$ver.utils.lombok",
@@ -28,5 +31,6 @@ ext {
             "javax.persistence-api"                 : "javax.persistence:javax.persistence-api:$ver.utils.javax_jpa",
             "jaxb-api"                              : "javax.xml.bind:jaxb-api:$ver.utils.jaxb_api",
             "common-pool"                           : "org.apache.commons:commons-pool2:$ver.utils.commons_pool",
+            "netty"                                 : "io.netty:netty-all:$ver.develop.netty",
     ]
 }
