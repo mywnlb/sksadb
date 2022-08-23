@@ -1,0 +1,63 @@
+allprojects {
+    group = 'cn.zhangyis'
+    version = '1.0-SNAPSHOT'
+    apply from: "${rootDir}/dependency.gradle"
+    apply plugin: 'maven'
+    ext.gradleScriptDir = "${rootProject.projectDir}/tasks"
+    apply from: "${gradleScriptDir}/task.gradle"
+}
+//容器模块名字
+def holderProjects = Arrays.asList('netty-demo')
+//依赖仓库
+def repository = {
+    mavenLocal()
+    maven { url = 'https://maven.aliyun.com/repository/jcenter' }
+    maven { url = 'https://oss.sonatype.org/content/repositories/snapshots/' }
+    maven { url = "https://plugins.gradle.org/m2/" }
+    jcenter()
+    mavenCentral()
+}
+configure(subprojects) { subp ->
+    //此处主要为了过滤容器模块中的插件配置，容器模块的主要用来管理下属部分的模块，无需添加依赖和插件
+    if (holderProjects.contains(subp.name)) return
+    buildscript {
+        repositories repository
+        dependencies {
+            classpath libs["spring-boot-gradle-plugin"]
+        }
+    }
+    repositories repository
+    apply plugin: 'java'
+    sourceCompatibility = JavaVersion.VERSION_15
+    targetCompatibility = JavaVersion.VERSION_15
+    [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+    apply from: "${rootDir}/dependency.gradle"
+    dependencies {
+        //lombok
+        annotationProcessor libs['lombok']
+        compileOnly libs['lombok']
+        testAnnotationProcessor libs['lombok']
+        testCompileOnly libs['lombok']
+        //test
+        testImplementation libs["spring-boot-test"]
+    }
+    //指定编译的目录
+    sourceSets {
+        main {
+            //直接将环境包目录下的文件打包到resources根目录下
+            resources {
+                //所有的环境文件夹
+                String[] envDirs = envdirs.split(",")
+                srcDir "src/main/resources/${env}"
+                println "Current environment [${env}] by ${project.name}. "
+                sourceSets.main.resources.srcDirs.each {
+                    it.listFiles().each {
+                        if (it.isDirectory() && envDirs.contains(it.name)) {
+                            exclude "${it.name}"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
