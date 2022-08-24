@@ -7,6 +7,10 @@ version '1.0-SNAPSHOT'
 
 
 dependencies {
+    compileOnly libs['lombok']
+    annotationProcessor libs['lombok']
     compile libs['netty']
+    compile libs['logback']
+    compile libs['jackson']
 }
 

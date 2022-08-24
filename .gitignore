@@ -40,3 +40,9 @@ target
 secrets.yml
 .gradletasknamecache
 .sts4-cache
+gradle-app.setting
+!gradle-wrapper.jar
+
+*.log
+log-file/
+logs/

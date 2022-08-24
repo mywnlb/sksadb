@@ -1,6 +1,6 @@
 ext {
     ver = [
-            utils : [
+            utils  : [
                     guava              : "28.2-jre",
                     lombok             : "1.18.8",
                     junit              : "4.12",
@@ -10,27 +10,31 @@ ext {
                     javax_jpa          : "2.2",
                     jaxb_api           : "2.3.1",
                     commons_pool       : "2.8.0",
+                    logback            : "1.2.11",
+                    jackson            : "2.13.3",
             ],
-            spring: [
+            spring : [
                     boot         : "2.2.5.RELEASE",
                     cloud        : "Hoxton.SR2",
                     security     : "5.3.0.RELEASE",
                     cloud_alibaba: "2.2.0.RELEASE",
                     management   : "1.0.8.RELEASE",
             ],
-            develop:[
-                    netty        :"4.1.79.Final"
+            develop: [
+                    netty: "4.1.79.Final"
             ]
     ]
     libs = [
-            "lombok"                                : "org.projectlombok:lombok:$ver.utils.lombok",
-            "guava"                                 : "com.google.guava:guava:$ver.utils.guava",
-            "groovy-all"                            : "org.codehaus.groovy:groovy-all:$ver.utils.groovy_all",
-            "hibernate-validator"                   : "org.hibernate:hibernate-validator:$ver.utils.hibernate_validator",
-            "hibernate-jpa"                         : "org.hibernate.javax.persistence:hibernate-jpa-2.1-api:$ver.utils.hibernate_jpa",
-            "javax.persistence-api"                 : "javax.persistence:javax.persistence-api:$ver.utils.javax_jpa",
-            "jaxb-api"                              : "javax.xml.bind:jaxb-api:$ver.utils.jaxb_api",
-            "common-pool"                           : "org.apache.commons:commons-pool2:$ver.utils.commons_pool",
-            "netty"                                 : "io.netty:netty-all:$ver.develop.netty",
+            "lombok"               : "org.projectlombok:lombok:$ver.utils.lombok",
+            "guava"                : "com.google.guava:guava:$ver.utils.guava",
+            "groovy-all"           : "org.codehaus.groovy:groovy-all:$ver.utils.groovy_all",
+            "hibernate-validator"  : "org.hibernate:hibernate-validator:$ver.utils.hibernate_validator",
+            "hibernate-jpa"        : "org.hibernate.javax.persistence:hibernate-jpa-2.1-api:$ver.utils.hibernate_jpa",
+            "javax.persistence-api": "javax.persistence:javax.persistence-api:$ver.utils.javax_jpa",
+            "jaxb-api"             : "javax.xml.bind:jaxb-api:$ver.utils.jaxb_api",
+            "common-pool"          : "org.apache.commons:commons-pool2:$ver.utils.commons_pool",
+            "netty"                : "io.netty:netty-all:$ver.develop.netty",
+            "logback"              : "ch.qos.logback:logback-classic:$ver.utils.logback",
+            "jackson"              : "com.fasterxml.jackson.core:jackson-databind:$ver.utils.jackson",
     ]
 }
