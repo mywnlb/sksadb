@@ -2,7 +2,7 @@ package cn.zhangyis.nettydemo.im.agreement;
 
 import lombok.Data;
 
-import static cn.zhangyis.nettydemo.im.agreement.Command.LOGIN_REQUEST;
+import static cn.zhangyis.nettydemo.im.constant.Command.LOGIN_REQUEST;
 
 @Data
 public class LoginRequestPacket extends Packet{

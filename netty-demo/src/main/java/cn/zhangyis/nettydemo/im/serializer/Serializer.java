@@ -1,5 +1,9 @@
 package cn.zhangyis.nettydemo.im.serializer;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+
+import java.io.IOException;
+
 public interface Serializer {
     /**
      * 序列化算法
@@ -12,7 +16,7 @@ public interface Serializer {
      * @param obj
      * @return
      */
-    byte[] getSerialized(Object obj);
+    byte[] getSerialized(Object obj) throws Exception;
 
     /**
      * 二进制转java对象
@@ -21,6 +25,6 @@ public interface Serializer {
      * @return
      * @param <T>
      */
-    <T> T deserialize(Class<T> clazz,byte[] bytes);
+    <T> T deserialize(Class<T> clazz,byte[] bytes) throws Exception;
 
 }
