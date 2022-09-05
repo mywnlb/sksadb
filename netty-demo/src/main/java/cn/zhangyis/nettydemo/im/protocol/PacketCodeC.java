@@ -1,4 +1,4 @@
-package cn.zhangyis.nettydemo.im.agreement;
+package cn.zhangyis.nettydemo.im.protocol;
 
 import cn.zhangyis.nettydemo.im.constant.SerializerAlgorithm;
 import cn.zhangyis.nettydemo.im.serializer.Serializer;
@@ -10,9 +10,17 @@ import java.util.Objects;
 public class PacketCodeC {
     private static final int MAGIC_NUMER = 0X12345678;
 
-    public ByteBuf encode(Packet packet) throws Exception {
+    private static final PacketCodeC INSTANCE = new PacketCodeC();
+
+    private PacketCodeC() {}
+
+   public static PacketCodeC getInstance() {
+        return INSTANCE;
+   }
+
+    public ByteBuf encode(ByteBufAllocator alloc, Packet packet) throws Exception {
         //直接内存不受虚拟机管理
-        ByteBuf byteBuf = ByteBufAllocator.DEFAULT.ioBuffer();
+        ByteBuf byteBuf = alloc.buffer();
 
         byte[] bytes = SerializerAlgorithm.DEFAULT.getSerialized(packet);
 

@@ -1,5 +1,6 @@
-package cn.zhangyis.nettydemo.im.server;
+package cn.zhangyis.nettydemo.im.client;
 
+import cn.zhangyis.nettydemo.im.handler.ServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -40,8 +41,8 @@ public class ServerClinent {
                             System.out.println("Server started on port: " + port);
                         } else {
                             System.out.println("Server failed to start on port: " + port);
-                            }
                         }
-                    });
-                }
+                    }
+                });
     }
+}

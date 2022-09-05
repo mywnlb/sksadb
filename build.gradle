@@ -7,7 +7,7 @@ allprojects {
     apply from: "${gradleScriptDir}/task.gradle"
 }
 //容器模块名字
-def holderProjects = Arrays.asList('netty-demo')
+def holderProjects = Arrays.asList('netty-demo','parser_btree')
 //依赖仓库
 def repository = {
     mavenLocal()

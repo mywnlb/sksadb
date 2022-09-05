@@ -1,4 +1,4 @@
-package cn.zhangyis.nettydemo.im.agreement;
+package cn.zhangyis.nettydemo.im.protocol;
 
 import lombok.Data;
 

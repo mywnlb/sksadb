@@ -4,7 +4,7 @@ if (!JavaVersion.current().java11Compatible) {
     throw new GradleException("Gradle must be run with Java 11")
 }
 
-include 'netty-demo'
+include 'netty-demo','parser_btree'
 
 /**
  * 递归检查build.gradle文件是否根据模块名生成
@@ -28,3 +28,5 @@ def assertProjectBuildFile(Set<ProjectDescriptor> dirs) {
     }
 }
 assertProjectBuildFile(rootProject.children)
+include 'parser_btree'
+
